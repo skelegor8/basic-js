@@ -25,7 +25,7 @@ function countCats(matrix) {
   }
   Number = countCats;
   return Number;
-  throw new NotImplementedError('Not implemented');
+ // throw new NotImplementedError('Not implemented');
 }
 
 module.exports = {

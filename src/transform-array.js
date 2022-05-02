@@ -13,9 +13,36 @@ const { NotImplementedError } = require('../extensions/index.js');
  * transform([1, 2, 3, '--discard-prev', 4, 5]) => [1, 2, 4, 5]
  * 
  */
-function transform(/* arr */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function transform(arr) {
+ // throw new NotImplementedError('Not implemented');
+  let error = "'arr' parameter must be an instance of the Array!"
+  let newArr = [];
+
+  let discardNext = '--discard-next'; //исключает следующий элемент массива из преобразованного массива
+  let discardPrev = '--discard-prev'; //исключает предыдущий элемент массива из преобразованного массива
+  let doubleNext = '--double-next'; //дублирует следующий элемент массива в преобразованном массиве
+  let doublePrev = '--double-prev'; //дублирует предыдущий элемент массива в преобразованном массиве
+
+  if (arr.constructor != Array) {
+    return error;
+  } else {
+    for (let i = 0; i < arr.length; i++){
+
+      if (arr[i] == discardNext && i + 2 < arr.length) { 
+        newArr.push(arr[i + 2]);
+      } else if (arr[i] == discardPrev && i - 2 > 0) { 
+        newArr.push(arr[i - 2]);
+      } else if (arr[i] == doubleNext && i + 1 < arr.length) { 
+        newArr.push(arr[i + 1]);
+      } else if (arr[i] == doublePrev && i - 1 > 0) { 
+        newArr.push(arr[i - 1]);
+      } else {
+        newArr.push(arr[i]);
+      }
+    }
+    return newArr;
+    
+  }
 }
 
 module.exports = {
