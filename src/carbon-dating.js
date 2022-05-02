@@ -17,7 +17,7 @@ const HALF_LIFE_PERIOD = 5730;
  * dateSample('WOOT!') => false
  *
  */
-function dateSample(sampleActivity) {
+function dateSample(/*sampleActivity*/) {
   throw new NotImplementedError('Not implemented');
   let carbonDate = 0;
   if (Number(sampleActivity) == true && typeof  sampleActivity == String) {
